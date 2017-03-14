@@ -1,0 +1,73 @@
+{
+    "name": "vue-beautify",
+    "displayName": "vue-beautify",
+    "description": "A beautify tools of Vue file",
+    "version": "0.0.1",
+    "publisher": "peakchen90",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "keywords": [
+        "vue",
+        "format",
+        "beautify",
+        "vue-format",
+        "vue-beautify"
+    ],
+    "activationEvents": [
+        "onCommand:extension.vueBeautify"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "keybindings": [
+            {
+                "command": "extension.vueBeautify",
+                "key": "ctrl+shift+f",
+                "mac": "cmd+shift+f",
+                "linux": "ctrl+shift+f",
+                "when": "editorTextFocus && !editorReadonly"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.vueBeautify",
+                "title": "Vue Beautify"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Vue Beautify Configuration",
+            "properties": {
+                "vueBeautify.isTabIndent": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Indent with Tabs, if false, with spaces."
+                },
+                "vueBeautify.indentSize": {
+                    "type": "number",
+                    "default": 2,
+                    "description": "Indent size, default 2."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.32",
+        "@types/node": "^6.0.40",
+        "eslint": "^3.6.0",
+        "mocha": "^2.3.3",
+        "pretty": "^1.0.0",
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0"
+    },
+    "dependencies": {
+        "js-beautify": "^1.6.11"
+    }
+}
