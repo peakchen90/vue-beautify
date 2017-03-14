@@ -14,10 +14,11 @@ function activate(context) {
         // The code you place here will be executed every time your command is executed
 
         // only for language of vue
-        if (textEditor.document.languageId.toLowerCase() !== 'vue') {
+        if (textEditor.document.languageId !== 'vue' || !/\.vue$/.test(textEditor.document.fileName)) {
             return;
         }
 
+        // read config
         var editorConfig = vscode.workspace.getConfiguration('vueBeautify');
 
         // is tab indent
@@ -44,7 +45,7 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(beautify);
+    context.subscriptions.push(disposable);
 }
 
 exports.activate = activate;

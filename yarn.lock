@@ -1191,14 +1191,6 @@ js-beautify@^1.6.11:
     mkdirp "~0.5.0"
     nopt "~3.0.1"
 
-js-beautify@~1.5.4:
-  version "1.5.10"
-  resolved "http://registry.npm.taobao.org/js-beautify/download/js-beautify-1.5.10.tgz#4d95371702699344a516ca26bf59f0a27bb75719"
-  dependencies:
-    config-chain "~1.1.5"
-    mkdirp "~0.5.0"
-    nopt "~3.0.1"
-
 js-tokens@^3.0.0:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/js-tokens/download/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
@@ -1660,12 +1652,6 @@ prelude-ls@~1.1.2:
 preserve@^0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/preserve/download/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
-
-pretty@^1.0.0:
-  version "1.0.0"
-  resolved "http://registry.npm.taobao.org/pretty/download/pretty-1.0.0.tgz#3a0ee343dc6d9aa71ff45582166bb15579dd2593"
-  dependencies:
-    js-beautify "~1.5.4"
 
 process-nextick-args@^1.0.6, process-nextick-args@~1.0.6:
   version "1.0.7"

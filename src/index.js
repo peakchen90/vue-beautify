@@ -1,4 +1,3 @@
-var pretty = require('pretty');
 var beautify = require('js-beautify');
 
 /**
@@ -10,17 +9,21 @@ var beautify = require('js-beautify');
  */
 module.exports = function (text, isTabIndent, indentSize) {
 
-  // options
-  var options = {
-    indent_char: ' ',
-    indent_size: indentSize !== undefined ? indentSize : 2,
-    indent_with_tabs: isTabIndent !== undefined ? isTabIndent : false,
-    indent_inner_html: true,
-    unformatted: ['code', 'pre', 'em', 'strong', 'span']
+  if (isTabIndent === undefined || typeof isTabIndent !== 'boolean') {
+    isTabIndent = false;
+  }
+  if (indentSize === undefined || typeof indentSize !== 'number' || indentSize < 0) {
+    indentSize = 2
   }
 
   // beautify
-  text = beautify.html(text, options);
+  text = beautify.html(text, {
+    indent_char: ' ',
+    indent_size: indentSize,
+    indent_with_tabs: isTabIndent,
+    indent_inner_html: true,
+    unformatted: ['code', 'pre', 'em', 'strong', 'span']
+  });
 
   // filter
   return text
