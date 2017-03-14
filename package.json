@@ -35,9 +35,18 @@
         "commands": [
             {
                 "command": "extension.vueBeautify",
-                "title": "Vue Beautify"
+                "title": "Beautify Vue"
             }
         ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "resourceLangId == vue",
+                    "command": "extension.vueBeautify",
+                    "group": "1_modification"
+                }
+            ]
+        },
         "configuration": {
             "type": "object",
             "title": "Vue Beautify Configuration",
