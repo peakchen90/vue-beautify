@@ -24,7 +24,7 @@ Beautify Vue code in Visual Studio Code.
     "vueBeautify.indentSize": 2,
     ```
 
-  3. copy into user's `settings.json` , and modify.
+3. copy into user's `settings.json` , and modify.
 
 ## Keyboard Shortcut
 
