@@ -12,19 +12,11 @@ Beautify Vue code in Visual Studio Code.
 2. Open context menu in vue, choose `Beautify Vue` ;
 3. Type `F1`, search `Beautify Vue`, and click the item.
 
-## Settings
+## Indent Option
 
-1. open `settings.json` , and search `vueBeautify` ;
-2. default settings: 
-    ```json
-    // Indent with Tabs, if false, with spaces.
-    "vueBeautify.isTabIndent": false,
+The vue-beautify's indent option according to the textEditor's indent option, like this: 
 
-    // Indent size, default 2.
-    "vueBeautify.indentSize": 2,
-    ```
-
-3. copy into user's `settings.json` , and modify.
+![indent option](source/indent-option.png)
 
 ## Keyboard Shortcut
 
