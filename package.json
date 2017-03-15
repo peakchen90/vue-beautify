@@ -2,7 +2,7 @@
     "name": "vue-beautify",
     "displayName": "vue-beautify",
     "description": "Beautify Vue code in place for vscode",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publisher": "peakchen90",
     "engines": {
         "vscode": "^1.10.0"
@@ -11,10 +11,6 @@
         "Formatters"
     ],
     "icon": "source/icon.png",
-    "galleryBanner": {
-        "color": "#d73435",
-        "theme": "dark"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/peakchen90/vue-beautify"
