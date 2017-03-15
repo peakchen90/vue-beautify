@@ -10,7 +10,7 @@ Beautify Vue code in Visual Studio Code.
 
 1. Keyboard Shortcut: `ctrl+shift+f` ;
 2. Open context menu in vue, choose `Beautify Vue` ;
-3. Type `F1`, search `Beautify Vue`, and click the item.
+3. Press `F1`, search `Beautify Vue`, and click the item.
 
 ## Indent Option
 

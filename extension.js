@@ -10,11 +10,13 @@ function activate(context) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    var disposable = vscode.commands.registerTextEditorCommand('extension.vueBeautify', function (textEditor) {
-        // The code you place here will be executed every time your command is executed
 
+    /**
+     * format all code
+     */
+    var format = vscode.commands.registerTextEditorCommand('vueBeautify.format', function (textEditor) {
         // only for language of vue
-        if (textEditor.document.languageId !== 'vue' || !/\.vue$/.test(textEditor.document.fileName)) {
+        if (textEditor.document.languageId !== 'vue' || !/\.vue$/i.test(textEditor.document.fileName)) {
             return;
         }
 
@@ -40,7 +42,21 @@ function activate(context) {
 
     });
 
-    context.subscriptions.push(disposable);
+    /**
+     * format vue template attribute
+     */
+    var formatAttribute = vscode.commands.registerTextEditorCommand('vueBeautify.formatAttribute', function (textEditor) {
+        // get selection range
+        var start = textEditor.selection.start;
+        var end = textEditor.selection.end;
+        var range = new vscode.Range(start, end);
+
+        // selection text
+        var text = textEditor.document.getText(range);
+
+    });
+
+    context.subscriptions.push(format, formatAttribute);
 }
 
 exports.activate = activate;

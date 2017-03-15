@@ -31,13 +31,14 @@
         "pub": "vsce publish patch"
     },
     "activationEvents": [
-        "onCommand:extension.vueBeautify"
+        "onCommand:vueBeautify.format",
+        "onCommand:vueBeautify.formatAttribute"
     ],
     "main": "./extension",
     "contributes": {
         "keybindings": [
             {
-                "command": "extension.vueBeautify",
+                "command": "vueBeautify.format",
                 "key": "ctrl+shift+f",
                 "mac": "cmd+shift+f",
                 "linux": "ctrl+shift+f",
@@ -46,15 +47,24 @@
         ],
         "commands": [
             {
-                "command": "extension.vueBeautify",
+                "command": "vueBeautify.format",
                 "title": "Beautify Vue"
+            },
+            {
+                "command": "vueBeautify.formatAttribute",
+                "title": "Beautify Attribute"
             }
         ],
         "menus": {
             "editor/context": [
                 {
-                    "when": "resourceLangId == vue",
-                    "command": "extension.vueBeautify",
+                    "when": "editorLangId == vue && !editorHasSelection",
+                    "command": "vueBeautify.format",
+                    "group": "1_modification"
+                },
+                {
+                    "when": "editorLangId == vue && editorHasSelection",
+                    "command": "vueBeautify.formatAttribute",
                     "group": "1_modification"
                 }
             ]
@@ -69,6 +79,8 @@
         "vscode": "^1.0.0"
     },
     "dependencies": {
+        "esformatter": "^0.10.0",
+        "esformatter-jsx": "^7.4.1",
         "js-beautify": "^1.6.11"
     }
 }
