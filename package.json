@@ -58,22 +58,6 @@
                     "group": "1_modification"
                 }
             ]
-        },
-        "configuration": {
-            "type": "object",
-            "title": "Vue Beautify Configuration",
-            "properties": {
-                "vueBeautify.isTabIndent": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Indent with Tabs, if false, with spaces."
-                },
-                "vueBeautify.indentSize": {
-                    "type": "number",
-                    "default": 2,
-                    "description": "Indent size, default 2."
-                }
-            }
         }
     },
     "devDependencies": {

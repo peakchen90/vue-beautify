@@ -18,20 +18,15 @@ function activate(context) {
             return;
         }
 
-        // read config
-        var editorConfig = vscode.workspace.getConfiguration('vueBeautify');
-
-        // is tab indent
-        var isTabIndent = editorConfig.isTabIndent;
-
-        // indent size
-        var indentSize = editorConfig.indentSize;
+        // textEditor option
+        var editorInsertSpace = textEditor.options.insertSpaces;
+        var editorTabSize = textEditor.options.tabSize;
 
         // editor text
         var text = textEditor.document.getText();
 
         // beautify code
-        var code = beautify(text, isTabIndent, indentSize);
+        var code = beautify(text, !editorInsertSpace, editorTabSize);
 
         // edit
         textEditor.edit(function (editBuilder) {

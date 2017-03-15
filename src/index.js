@@ -13,7 +13,7 @@ module.exports = function (text, isTabIndent, indentSize) {
     isTabIndent = false;
   }
   if (indentSize === undefined || typeof indentSize !== 'number' || indentSize < 0) {
-    indentSize = 2
+    indentSize = 2;
   }
 
   // beautify
