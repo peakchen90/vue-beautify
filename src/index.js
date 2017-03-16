@@ -25,13 +25,19 @@ module.exports = function (text, isTabIndent, indentSize) {
     isTabIndent: isTabIndent
   }
 
-  return beautify.html(text, {
+  // beautify
+  text = beautify.html(text, {
     indent_char: ' ',
     indent_size: indentSize,
     indent_with_tabs: isTabIndent,
     indent_inner_html: true,
     unformatted: ['code', 'pre', 'em', 'strong', 'span']
   });
+
+  // for stylus
+  
+
+  return text;
 
 }
 
