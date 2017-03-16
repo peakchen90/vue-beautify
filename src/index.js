@@ -17,7 +17,7 @@ module.exports = function (text, isTabIndent, indentSize) {
     indentSize = 2;
   }
 
-  var isRootIndent = true;
+  // var isRootIndent = true;
 
   // options
   var options = {
@@ -25,57 +25,14 @@ module.exports = function (text, isTabIndent, indentSize) {
     isTabIndent: isTabIndent
   }
 
-  // find template 
-  text = text.replace(/([ \t]*<template[\s\S]*?>)([\s\S]*?)([ \t]*<\/template>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
-    tagStart = beautifyTagStart(tagStart);
-    tagEnd = beautifyTagEnd(tagEnd);
-
-    // beautify code
-    code = beautifyTemplate(code, options);
-
-    // is root tag indent
-    if (isRootIndent) {
-      code = rootTagIndent(code, options);
-    }
-
-    return tagStart + '\n' + code + '\n' + tagEnd;
+  return beautify.html(text, {
+    indent_char: ' ',
+    indent_size: indentSize,
+    indent_with_tabs: isTabIndent,
+    indent_inner_html: true,
+    unformatted: ['code', 'pre', 'em', 'strong', 'span']
   });
 
-  // find script
-  text = text.replace(/([ \t]*<script[\s\S]*?>)([\s\S]*?)([ \t]*<\/script>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
-    tagStart = beautifyTagStart(tagStart);
-    tagEnd = beautifyTagEnd(tagEnd);
-
-    // beautify code
-    code = beautifyScript(code, options);
-
-    // is root tag indent
-    if (isRootIndent) {
-      code = rootTagIndent(code, options);
-    }
-
-    return tagStart + '\n' + code + '\n' + tagEnd;
-
-  });
-
-  // find style
-  text = text.replace(/([ \t]*<style[\s\S]*?>)([\s\S]*?)([ \t]*<\/style>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
-    tagStart = beautifyTagStart(tagStart);
-    tagEnd = beautifyTagEnd(tagEnd);
-    // var lang = getLang(tagStart);
-
-    // beautify code
-    code = beautifyStyle(code, options);
-
-    // is root tag indent
-    if (isRootIndent) {
-      code = rootTagIndent(code, options);
-    }
-
-    return tagStart + '\n' + code + '\n' + tagEnd;
-  });
-
-  return text
 }
 
 // beautify tagStart
@@ -113,7 +70,7 @@ function getLang(str) {
 
 // beautify template
 function beautifyTemplate(str, options) {
-  
+
   return beautify.html(str, {
     indent_char: ' ',
     indent_size: options.indentSize,
