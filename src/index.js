@@ -1,4 +1,5 @@
 var beautify = require('js-beautify');
+var beautifyHtml = require('./beautifyHtml');
 
 /**
  * beautify html/js/css
@@ -74,15 +75,6 @@ module.exports = function (text, isTabIndent, indentSize) {
     return tagStart + '\n' + code + '\n' + tagEnd;
   });
 
-  // beautify
-  // text = beautify.html(text, {
-  //   indent_char: ' ',
-  //   indent_size: indentSize,
-  //   indent_with_tabs: isTabIndent,
-  //   indent_inner_html: false,
-  //   unformatted: ['code', 'pre', 'em', 'strong', 'span']
-  // });
-
   return text
 }
 
@@ -121,10 +113,11 @@ function getLang(str) {
 
 // beautify template
 function beautifyTemplate(str, options) {
+  
   return beautify.html(str, {
     indent_char: ' ',
     indent_size: options.indentSize,
-    indent_with_tabs: options.isTabIndent,
+    indent_with_tabs: options.isTabIndent
   });
 
 }
