@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 var vscode = require('vscode');
+var opn = require('opn');
 var beautify = require('./src/index');
 
 // this method is called when your extension is activated
@@ -43,20 +44,14 @@ function activate(context) {
     });
 
     /**
-     * format vue template attribute
+     * open html with default browser
      */
-    var formatAttribute = vscode.commands.registerTextEditorCommand('vueBeautify.formatAttribute', function (textEditor) {
-        // get selection range
-        var start = textEditor.selection.start;
-        var end = textEditor.selection.end;
-        var range = new vscode.Range(start, end);
-
-        // selection text
-        var text = textEditor.document.getText(range);
-
+    var openWithDefault = vscode.commands.registerCommand('vueBeautify.openWithDefault', function (e) {
+        var filename = e._fsPath;
+        opn(filename);
     });
 
-    context.subscriptions.push(format, formatAttribute);
+    context.subscriptions.push(format, openWithDefault);
 }
 
 exports.activate = activate;

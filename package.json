@@ -32,7 +32,7 @@
     },
     "activationEvents": [
         "onCommand:vueBeautify.format",
-        "onCommand:vueBeautify.formatAttribute"
+        "onCommand:vueBeautify.openWithDefault"
     ],
     "main": "./extension",
     "contributes": {
@@ -51,8 +51,8 @@
                 "title": "Beautify Vue"
             },
             {
-                "command": "vueBeautify.formatAttribute",
-                "title": "Beautify Attribute"
+                "command": "vueBeautify.openWithDefault",
+                "title": "open in browser"
             }
         ],
         "menus": {
@@ -63,8 +63,15 @@
                     "group": "1_modification"
                 },
                 {
-                    "when": "editorLangId == vue && editorHasSelection",
-                    "command": "vueBeautify.formatAttribute",
+                    "when": "editorLangId == html",
+                    "command": "vueBeautify.openWithDefault",
+                    "group": "1_modification"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == html",
+                    "command": "vueBeautify.openWithDefault",
                     "group": "1_modification"
                 }
             ]
@@ -81,6 +88,7 @@
     "dependencies": {
         "esformatter": "^0.10.0",
         "esformatter-jsx": "^7.4.1",
-        "js-beautify": "^1.6.11"
+        "js-beautify": "^1.6.11",
+        "opn": "^4.0.2"
     }
 }
