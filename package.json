@@ -2,7 +2,7 @@
     "name": "vue-beautify",
     "displayName": "vue-beautify",
     "description": "Beautify Vue code in place for vscode",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "publisher": "peakchen90",
     "engines": {
         "vscode": "^1.10.0"
@@ -42,9 +42,19 @@
                 "key": "ctrl+shift+f",
                 "mac": "cmd+shift+f",
                 "linux": "ctrl+shift+f",
-                "when": "editorTextFocus && !editorReadonly"
+                "when": "editorTextFocus && editorTextFocus && !editorReadonly"
             }
         ],
+        "configuration": {
+            "title": "vueBeautify Options",
+            "properties": {
+                "vueBeautify.isRootIndent": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "whether indent on tag of template or script or style"
+                }
+            }
+        },
         "commands": [
             {
                 "command": "vueBeautify.format",
@@ -58,7 +68,7 @@
         "menus": {
             "editor/context": [
                 {
-                    "when": "editorLangId == vue && !editorHasSelection",
+                    "when": "editorLangId == vue",
                     "command": "vueBeautify.format",
                     "group": "1_modification"
                 },

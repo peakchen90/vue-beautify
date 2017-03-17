@@ -24,12 +24,13 @@ function activate(context) {
         // textEditor option
         var editorInsertSpace = textEditor.options.insertSpaces;
         var editorTabSize = textEditor.options.tabSize;
+        var isRootIndent = vscode.workspace.getConfiguration('vueBeautify').isRootIndent;
 
         // editor text
         var text = textEditor.document.getText();
 
         // beautify code
-        var code = beautify(text, !editorInsertSpace, editorTabSize);
+        var code = beautify(text, !editorInsertSpace, editorTabSize, isRootIndent);
 
         // edit
         textEditor.edit(function (editBuilder) {

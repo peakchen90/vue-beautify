@@ -1,5 +1,5 @@
 var beautify = require('js-beautify');
-var beautifyHtml = require('./beautifyHtml');
+// var beautifyHtml = require('./beautifyHtml');
 
 /**
  * beautify html/js/css
@@ -8,7 +8,7 @@ var beautifyHtml = require('./beautifyHtml');
  * @param {number} [indentSize=2] indent size, default: 2
  * @return {string} beautify the code
  */
-module.exports = function (text, isTabIndent, indentSize) {
+module.exports = function (text, isTabIndent, indentSize, isRootIndent) {
 
   if (isTabIndent === undefined) {
     isTabIndent = false;
@@ -16,8 +16,6 @@ module.exports = function (text, isTabIndent, indentSize) {
   if (indentSize === undefined) {
     indentSize = 2;
   }
-
-  var isRootIndent = true;
 
   // options
   var options = {

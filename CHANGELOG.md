@@ -1,3 +1,5 @@
+### 2.0.0: Now, please install [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), it has smilar features. 
+
 ### 1.0.5: 16 Mar 2017
 * Fix bug: if style's lang is stylus, sass, cause style code confusion.
 
