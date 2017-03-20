@@ -44,15 +44,7 @@ function activate(context) {
 
     });
 
-    /**
-     * open html with default browser
-     */
-    var openWithDefault = vscode.commands.registerCommand('vueBeautify.openWithDefault', function (e) {
-        var filename = e._fsPath;
-        opn(filename);
-    });
-
-    context.subscriptions.push(format, openWithDefault);
+    context.subscriptions.push(format);
 }
 
 exports.activate = activate;

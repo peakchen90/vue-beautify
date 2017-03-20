@@ -31,8 +31,7 @@
         "pub": "vsce publish patch"
     },
     "activationEvents": [
-        "onCommand:vueBeautify.format",
-        "onCommand:vueBeautify.openWithDefault"
+        "onCommand:vueBeautify.format"
     ],
     "main": "./extension",
     "contributes": {
@@ -59,10 +58,6 @@
             {
                 "command": "vueBeautify.format",
                 "title": "Beautify Vue"
-            },
-            {
-                "command": "vueBeautify.openWithDefault",
-                "title": "open in browser"
             }
         ],
         "menus": {
@@ -70,18 +65,6 @@
                 {
                     "when": "editorLangId == vue",
                     "command": "vueBeautify.format",
-                    "group": "1_modification"
-                },
-                {
-                    "when": "editorLangId == html",
-                    "command": "vueBeautify.openWithDefault",
-                    "group": "1_modification"
-                }
-            ],
-            "explorer/context": [
-                {
-                    "when": "resourceLangId == html",
-                    "command": "vueBeautify.openWithDefault",
                     "group": "1_modification"
                 }
             ]
@@ -98,7 +81,6 @@
     "dependencies": {
         "esformatter": "^0.10.0",
         "esformatter-jsx": "^7.4.1",
-        "js-beautify": "^1.6.11",
-        "opn": "^4.0.2"
+        "js-beautify": "^1.6.11"
     }
 }
