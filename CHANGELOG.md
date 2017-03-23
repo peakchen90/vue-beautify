@@ -1,4 +1,10 @@
-### 2.0.0: Now, please install [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), it has smilar features. 
+## [release]
+
+### 2.0.1: 23 Mar 2017
+* Fix bug: if template's lang is pug, jade, cause template code confusion.
+
+### 2.0.0: 17 Mar 2017
+* Now, please install [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur), it has smilar features. 
 
 ### 1.0.5: 16 Mar 2017
 * Fix bug: if style's lang is stylus, sass, cause style code confusion.

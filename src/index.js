@@ -1,4 +1,5 @@
 var beautify = require('js-beautify');
+var pugBeautify = require('pug-beautify');
 // var beautifyHtml = require('./beautifyHtml');
 
 /**
@@ -27,9 +28,15 @@ module.exports = function (text, isTabIndent, indentSize, isRootIndent) {
   text = text.replace(/([ \t]*<template[\s\S]*?>)([\s\S]*?)([ \t]*<\/template>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
     tagStart = beautifyTagStart(tagStart);
     tagEnd = beautifyTagEnd(tagEnd);
+    var lang = getLang(tagStart);
+    lang = lang ? lang.toLowerCase() : 'html';
+
+    if (lang === 'pug' || lang === 'jade') {
+      return tagStart + code + tagEnd;
+    }
 
     // beautify code
-    code = beautifyTemplate(code, options);
+    code = beautifyHtml(code, options);
 
     // is root tag indent
     if (isRootIndent) {
@@ -45,7 +52,7 @@ module.exports = function (text, isTabIndent, indentSize, isRootIndent) {
     tagEnd = beautifyTagEnd(tagEnd);
 
     // beautify code
-    code = beautifyScript(code, options);
+    code = beautifyJs(code, options);
 
     // is root tag indent
     if (isRootIndent) {
@@ -69,7 +76,7 @@ module.exports = function (text, isTabIndent, indentSize, isRootIndent) {
     }
 
     // beautify code
-    code = beautifyStyle(code, options);
+    code = beautifyCss(code, options);
 
     // is root tag indent
     if (isRootIndent) {
@@ -118,8 +125,7 @@ function getLang(str) {
 }
 
 // beautify template
-function beautifyTemplate(str, options) {
-
+function beautifyHtml(str, options) {
   return beautify.html(str, {
     indent_char: ' ',
     indent_size: options.indentSize,
@@ -128,8 +134,21 @@ function beautifyTemplate(str, options) {
 
 }
 
+// beautify template
+function beautifyPug(str, options) {
+  try {
+    str = pugBeautify(str, {
+      fill_tab: options.isTabIndent,
+      omit_div: false,
+      tab_size: options.indentSize
+    });
+  } catch (e) { }
+  return str;
+
+}
+
 // beautify script
-function beautifyScript(str, options) {
+function beautifyJs(str, options) {
   return beautify(str, {
     indent_char: ' ',
     indent_size: options.indentSize,
@@ -139,7 +158,7 @@ function beautifyScript(str, options) {
 }
 
 // beautify style
-function beautifyStyle(str, options) {
+function beautifyCss(str, options) {
   return beautify.css(str, {
     indent_char: ' ',
     indent_size: options.indentSize,
