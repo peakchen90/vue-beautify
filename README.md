@@ -24,8 +24,8 @@ Use the following to embed a beautify shortcut in keybindings.json. Replace with
 
 ```json
     {
-      "key": "ctrl+shift+f",          
-      "command": "extension.vueBeautify",
+      "key": "alt+shift+f",          
+      "command": "vueBeautify.format",
       "when": "editorTextFocus && !editorReadonly" 
     }
 ```
