@@ -2,7 +2,7 @@
     "name": "vue-beautify",
     "displayName": "vue-beautify",
     "description": "Beautify Vue code in place for vscode",
-    "version": "2.0.1",
+    "version": "2.0.3",
     "publisher": "peakchen90",
     "engines": {
         "vscode": "^1.10.0"
@@ -41,7 +41,7 @@
                 "key": "ctrl+shift+f",
                 "mac": "cmd+shift+f",
                 "linux": "ctrl+shift+f",
-                "when": "editorTextFocus && editorTextFocus && !editorReadonly"
+                "when": "resourceLangId=='vue' && editorTextFocus && editorTextFocus && !editorReadonly"
             }
         ],
         "configuration": {
