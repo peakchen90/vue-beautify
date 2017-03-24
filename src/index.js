@@ -25,7 +25,7 @@ module.exports = function (text, isTabIndent, indentSize, isRootIndent) {
   }
 
   // find template 
-  text = text.replace(/([ \t]*<template[\s\S]*?>)([\s\S]*?)([ \t]*<\/template>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
+  text = text.replace(/([ \t]*<template[\s\S]*?>)([\s\S]*)([ \t]*<\/template>[ \t]*)/g, function (match, tagStart, code, tagEnd) {
     tagStart = beautifyTagStart(tagStart);
     tagEnd = beautifyTagEnd(tagEnd);
     var lang = getLang(tagStart);
