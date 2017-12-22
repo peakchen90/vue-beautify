@@ -1,3 +1,5 @@
+> Notice: This project is no longer maintained. 注意：这个项目已经不在维护了
+
 # vue-beautify for vscode
 
 ## Features
