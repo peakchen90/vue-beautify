@@ -39,7 +39,7 @@
             {
                 "command": "vueBeautify.format",
                 "key": "ctrl+shift+f",
-                "mac": "cmd+shift+f",
+                "mac": "cmd+shift+v",
                 "linux": "ctrl+shift+f",
                 "when": "resourceLangId=='vue' && editorTextFocus && editorTextFocus && !editorReadonly"
             }
